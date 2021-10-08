@@ -1,5 +1,5 @@
 {-# LANGUAGE RebindableSyntax #-}
-module PreciseProb where
+module ProbProg.PreciseProb where
 
 -- The problem we solve here is to represent numbers very close to 1
 -- or very close to 0 with sufficient precision.
@@ -8,7 +8,7 @@ import Algebra.Classes
 import Prelude hiding (Num(..),(/),fromRational,(&&),(||),not)
 -- import Boolean
 
-import Logits
+import ProbProg.Logits
 
 data Prob = Almost0 Logit | OneMinus Logit deriving (Eq)
 

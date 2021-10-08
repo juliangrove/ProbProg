@@ -5,13 +5,13 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-module ProbLang where
+module ProbProg.ProbLang where
 
 import Algebra.Classes
 import Prelude hiding (Num(..),(/),not,recip,sum,Ord(..))
 import qualified Prelude
-import Logits
-import Boolean
+import ProbProg.Logits
+import ProbProg.Boolean
 import Control.Applicative
 
 -- | This is an abstract type, so that we know it can be observed only

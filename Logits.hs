@@ -1,5 +1,5 @@
 {-# LANGUAGE RebindableSyntax #-}
-module Logits where
+module ProbProg.Logits where
 
 -- The problem we solve here is to represent numbers very close to 0 with sufficient precision.
 
