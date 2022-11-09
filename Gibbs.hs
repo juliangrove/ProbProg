@@ -28,7 +28,7 @@ import System.Random.MWC.Distributions (bernoulli)
 import System.IO.Unsafe
 import ProbProg.Boolean
 import Algebra.Classes
-import Prelude hiding (Num(..),(/),not,recip,sum)
+import Prelude hiding (exp,log,Num(..),(/),not,recip,sum)
 import qualified Prelude
 import ProbProg.Logits
 import ProbProg.ProbLang

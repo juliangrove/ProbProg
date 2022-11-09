@@ -9,7 +9,7 @@ module Exact where
 import Logits
 import ProbLang
 import Algebra.Classes
-import Prelude hiding (exp,Num(..),(/),fromRational)
+import Prelude hiding (exp,log,Num(..),(/),fromRational)
 import Control.Monad
 import Histograms (listToDist, DistributionApproximation)
 

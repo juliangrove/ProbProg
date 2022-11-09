@@ -2,7 +2,7 @@ module ProbProg.Boolean where
 
 import qualified Prelude
 import Algebra.Classes
-import Prelude hiding (exp,Num(..),(/),fromRational,not)
+import Prelude hiding (exp,log,Num(..),(/),fromRational,not)
 
 import ProbProg.Logits
 
