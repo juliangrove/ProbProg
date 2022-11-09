@@ -22,8 +22,8 @@ newtype Probabilistic a = Prob {fromProb :: a}
   deriving (Functor,Additive,Multiplicative,Group,AbelianAdditive,Ring,Show,Eq,Prelude.Num,Division,Field,Fractional,Floating)
 
 
-instance Ring a => Module (Probabilistic a) (Probabilistic a) where
-  Prob a *^ Prob b = Prob (a * b)
+-- instance Ring a => Module (Probabilistic a) (Probabilistic a) where
+  -- Prob a *^ Prob b = Prob (a * b)
 instance Applicative Probabilistic where
   pure = Prob
   Prob f <*> Prob a = Prob (f a)
