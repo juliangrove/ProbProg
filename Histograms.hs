@@ -4,7 +4,7 @@ module ProbProg.Histograms where
 import Algebra.Classes hiding (normalize)
 import ProbProg.Logits
 import Data.Map as M
-import Prelude hiding (Num(..),(/),not,recip,sum)
+import Prelude hiding (exp, Num(..), (/), not, recip, sum)
 import ProbProg.PreciseProb
 import ProbProg.Boolean
 import Data.List (find)

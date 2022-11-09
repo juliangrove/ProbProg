@@ -5,7 +5,7 @@ module ProbProg.PreciseProb where
 -- or very close to 0 with sufficient precision.
 
 import Algebra.Classes
-import Prelude hiding (Num(..),(/),fromRational,(&&),(||),not)
+import Prelude hiding (exp, Num(..), (/), fromRational, (&&), (||), not)
 -- import Boolean
 
 import ProbProg.Logits

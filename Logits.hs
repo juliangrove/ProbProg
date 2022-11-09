@@ -4,7 +4,7 @@ module ProbProg.Logits where
 -- The problem we solve here is to represent numbers very close to 0 with sufficient precision.
 
 import Algebra.Classes
-import Prelude hiding (Num(..),(/),fromRational)
+import Prelude hiding (exp, Num(..), (/), fromRational)
 
 newtype Logit = ExpNeg {negLog :: Double} deriving (Eq)
 

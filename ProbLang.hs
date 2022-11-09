@@ -8,7 +8,7 @@
 module ProbProg.ProbLang where
 
 import Algebra.Classes
-import Prelude hiding (Num(..),(/),not,recip,sum,Ord(..))
+import Prelude hiding (exp, Num(..), (/), not, recip, sum, Ord(..))
 import qualified Prelude
 import ProbProg.Logits
 import ProbProg.Boolean
