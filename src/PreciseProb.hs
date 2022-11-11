@@ -6,7 +6,7 @@ module PreciseProb where
 -- or very close to 0 with sufficient precision.
 
 import Algebra.Classes
-import Prelude hiding (Num(..), (/), fromRational, (&&), (||), not)
+import Prelude as Prel hiding (Num(..), (/), fromRational, (&&), (||), not)
 -- import Boolean
 
 import Logits
@@ -15,7 +15,7 @@ data Prob = Almost0 Logit | OneMinus Logit deriving (Eq)
 
 
 oneMinus :: Logit -> Logit
-oneMinus (ExpNeg x) = ExpNeg (- log (1-exp(-x)))
+oneMinus (ExpNeg x) = ExpNeg (- Prel.log (1 - Prel.exp (-x)))
 
 -- >>> toProb 1 * toProb 1
 -- 1.0( large )
@@ -40,10 +40,10 @@ instance Ord Prob where
   compare (OneMinus _x) (Almost0 _y) = GT
 
 oneMinus' :: Logit -> Prob
-oneMinus' x@(ExpNeg e) = if e > log 2 then OneMinus x else Almost0 (oneMinus x) 
+oneMinus' x@(ExpNeg e) = if e > Prel.log 2 then OneMinus x else Almost0 (oneMinus x) 
 
 logitToProb :: Logit -> Prob
-logitToProb x@(ExpNeg e) = if e > log 2 then Almost0 x else OneMinus (oneMinus x) 
+logitToProb x@(ExpNeg e) = if e > Prel.log 2 then Almost0 x else OneMinus (oneMinus x) 
 
 probToLogit :: Prob -> Logit
 probToLogit (Almost0 x) = x
@@ -54,8 +54,8 @@ probToDouble = fromLogit . probToLogit
 
 -- | An approximation of the sigmoid function: exp(-x)/2 if x > 0, antisymmetric otherwise.
 approxSigmoid :: Double -> Prob
-approxSigmoid x | x < 0 = Almost0 (ExpNeg (log 2 - x))
-                | otherwise = OneMinus (ExpNeg (log 2 + x))
+approxSigmoid x | x < 0 = Almost0 (ExpNeg (Prel.log 2 - x))
+                | otherwise = OneMinus (ExpNeg (Prel.log 2 + x))
 
 approxEq :: Double -> Double -> Prob
 approxEq x y = logitToProb (ExpNeg (square (x - y)))

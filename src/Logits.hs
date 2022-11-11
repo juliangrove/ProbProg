@@ -5,7 +5,7 @@ module Logits where
 -- The problem we solve here is to represent numbers very close to 0 with sufficient precision.
 
 import Algebra.Classes
-import Prelude hiding (Num(..), (/), fromRational)
+import Prelude as Prel hiding (Num(..), (/), fromRational)
 
 newtype Logit = ExpNeg {negLog :: Double} deriving (Eq)
 
@@ -13,15 +13,15 @@ instance Ord Logit where
   compare (ExpNeg a) (ExpNeg b) = compare b a
 
 fromLogit :: Logit -> Double
-fromLogit (ExpNeg x) = exp (negate x)
+fromLogit (ExpNeg x) = Prel.exp (negate x)
 
 toLogit :: Double -> Logit
-toLogit x = ExpNeg (negate (log x))
+toLogit x = ExpNeg (negate (Prel.log x))
 
 instance Additive Logit where
   zero = ExpNeg (1/0)
-  ExpNeg a + ExpNeg b | a <= b    = ExpNeg (a - log (1 + exp (a-b)))
-                      | otherwise = ExpNeg (b - log (1 + exp (b-a)))
+  ExpNeg a + ExpNeg b | a <= b    = ExpNeg (a - Prel.log (1 + Prel.exp (a-b)))
+                      | otherwise = ExpNeg (b - Prel.log (1 + Prel.exp (b-a)))
 
 instance Multiplicative Logit where
   one = ExpNeg zero
