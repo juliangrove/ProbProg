@@ -22,7 +22,7 @@ import Control.Applicative
 -- dependencies on Probabilistic values explicitly; and thus we can
 -- reuse bigger parts of traces.
 newtype Probabilistic a = Prob {fromProb :: a}
-  deriving (Functor,Additive,Multiplicative,Group,AbelianAdditive,Show,Eq,Prelude.Num,Division,Fractional,Floating)
+  deriving (Functor,Additive,Multiplicative,Group,AbelianAdditive,Show,Eq,Prelude.Num,Division,Field,Fractional,Floating)
 -- deriving instance (Scalable (Probabilistic a) (Probabilistic a)) => Ring (Probabilistic a)
 -- deriving instance (Scalable (Probabilistic a) (Probabilistic a)) => Field (Probabilistic a)
 
