@@ -8,13 +8,13 @@
 {-# LANGUAGE UndecidableInstances #-}
 
 
-module ProbProg.ProbLang where
+module ProbLang where
 
 import Algebra.Classes
-import Prelude hiding (exp, log, Num(..), (/), not, recip, sum, Ord(..))
+import Prelude hiding (Num(..), (/), not, recip, sum, Ord(..))
 import qualified Prelude
-import ProbProg.Logits
-import ProbProg.Boolean
+import Logits
+import Boolean
 import Control.Applicative
 
 -- | This is an abstract type, so that we know it can be observed only
@@ -22,9 +22,9 @@ import Control.Applicative
 -- dependencies on Probabilistic values explicitly; and thus we can
 -- reuse bigger parts of traces.
 newtype Probabilistic a = Prob {fromProb :: a}
-  deriving (Functor,Additive,Multiplicative,Group,AbelianAdditive,Show,Eq,Prelude.Num,Division,Field,Fractional,Floating)
--- deriving instance (Scalable (Probabilistic a) (Probabilistic a)) => Ring (Probabilistic a)
--- deriving instance (Scalable (Probabilistic a) (Probabilistic a)) => Field (Probabilistic a)
+  deriving (Functor,Additive,Multiplicative,Group,AbelianAdditive,Show,Eq,Prelude.Num,Division,Fractional,Floating)
+deriving instance (Ring a, Module (Probabilistic a) (Probabilistic a)) => Ring (Probabilistic a)
+deriving instance (Ring a, Division a, Field a, Module (Probabilistic a) (Probabilistic a)) => Field (Probabilistic a)
 
 -- instance Ring a => Module (Probabilistic a) (Probabilistic a) where
   -- Prob a *^ Prob b = Prob (a * b)

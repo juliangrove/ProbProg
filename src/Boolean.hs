@@ -1,10 +1,10 @@
-module ProbProg.Boolean where
+module Boolean where
 
 import qualified Prelude
 import Algebra.Classes
-import Prelude hiding (exp,log,Num(..),(/),fromRational,not)
+import Prelude hiding (Num(..), (/), fromRational, not)
 
-import ProbProg.Logits
+import Logits
 
 class Boolean a where
   (∧) :: a -> a -> a

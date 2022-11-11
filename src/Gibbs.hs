@@ -12,7 +12,7 @@
 
 -- This module follows the WebPPL tutorial (without the bugs, hopefully)
 -- This could be an alternative implementation: http://mlg.eng.cam.ac.uk/pub/pdf/SciGhaGor15.pdf
-module ProbProg.Gibbs (gibbs,probability,probabilityWithN,P) where
+module Gibbs (gibbs, probability, probabilityWithN, P) where
 
 import qualified Statistics.Distribution as S
 import Statistics.Distribution.Normal
@@ -26,13 +26,13 @@ import qualified Data.Map.Strict as M
 import System.Random.MWC (GenIO,withSystemRandom,asGenST,uniformR,createSystemRandom)
 import System.Random.MWC.Distributions (bernoulli)
 import System.IO.Unsafe
-import ProbProg.Boolean
+import Boolean
 import Algebra.Classes
 import Prelude hiding (exp,log,Num(..),(/),not,recip,sum)
 import qualified Prelude
-import ProbProg.Logits
-import ProbProg.ProbLang
-import ProbProg.Histograms
+import Logits
+import ProbLang
+import Histograms
 
 type Truth = Bool
 
@@ -225,7 +225,7 @@ twoFindMoreTraces gen n !history tr = do
     _ -> twoFindMoreTraces gen n history tr
 
 gibbs :: (Show a,Ord a) => Int -> P (Probabilistic a) -> Probabilistic (DistributionApproximation a)
-gibbs n p = Prob (ProbProg.Histograms.normalize (unsafePerformIO (gibbsIO n p)))
+gibbs n p = Prob (Histograms.normalize (unsafePerformIO (gibbsIO n p)))
 
 gibbsIO :: (Show a,Ord a) => Int -> P (Probabilistic a) -> IO (DistributionApproximation a)
 gibbsIO n p = do

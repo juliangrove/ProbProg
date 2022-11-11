@@ -1,10 +1,11 @@
 {-# LANGUAGE RebindableSyntax #-}
-module ProbProg.Logits where
+
+module Logits where
 
 -- The problem we solve here is to represent numbers very close to 0 with sufficient precision.
 
 import Algebra.Classes
-import Prelude hiding (exp, log, Num(..), (/), fromRational)
+import Prelude hiding (Num(..), (/), fromRational)
 
 newtype Logit = ExpNeg {negLog :: Double} deriving (Eq)
 

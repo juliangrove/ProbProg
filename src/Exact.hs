@@ -3,13 +3,14 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Exact where
 
 -- exact evaluation for probabilistic programs
 import Logits
 import ProbLang
 import Algebra.Classes
-import Prelude hiding (exp,log,Num(..),(/),fromRational)
+import Prelude hiding (Num(..), (/), fromRational)
 import Control.Monad
 import Histograms (listToDist, DistributionApproximation)
 

@@ -1,12 +1,13 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-module ProbProg.Histograms where
+
+module Histograms where
 
 import Algebra.Classes hiding (normalize)
-import ProbProg.Logits
+import Logits
 import Data.Map as M
-import Prelude hiding (exp, log, Num(..), (/), not, recip, sum)
-import ProbProg.PreciseProb
-import ProbProg.Boolean
+import Prelude hiding (Num(..), (/), not, recip, sum)
+import PreciseProb
+import Boolean
 import Data.List (find)
 
 type Histogram r = M.Map r Logit
